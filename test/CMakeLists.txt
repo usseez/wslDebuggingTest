@@ -1,0 +1,46 @@
+cmake_minimum_required(VERSION 3.10)
+
+
+
+
+#project name and language
+set(PACKAGE_NAME IMAGEOVERLAY_CMAKE) # 이 부분이 문제였음
+project( "test" CXX)
+
+#project will use the C++11 standard
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# set dir for header and library
+
+
+# opencv 디렉토리 set
+
+set(OpenCV_DIR "/usr/local/include/")
+find_package(OpenCV REQUIRED)
+
+# OpenCV 모듈을 명시적으로 찾기
+if(OpenCV_FOUND)
+    message(STATUS "OpenCV version: ${OpenCV_VERSION}")
+else()
+    message(FATAL_ERROR "OpenCV not found")
+endif()
+
+
+# include directories
+#include_directories( ${OpenCV_INCLUDE_DIRS} )
+#include_directories("${PROJECT_SOURCE_DIR}/include")
+
+
+# Specify the cross-compilers
+#set(CMAKE_C_COMPILER /usr//bin/gcc)        # Replace with your GCC path
+#set(CMAKE_CXX_COMPILER /mnt/c/Windows/System32/mingw64/bin/g++)
+
+
+#실행파일 추가
+add_executable(test src/main.cpp) #check your file path
+target_link_libraries(test ${OpenCV_LIBS})
+
+
+
+set_target_properties(test PROPERTIES SUFFIX ".exe")

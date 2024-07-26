@@ -1,0 +1,3 @@
+/home/jisu/cstudy/test/build/CMakeFiles/rebuild_cache.dir
+/home/jisu/cstudy/test/build/CMakeFiles/edit_cache.dir
+/home/jisu/cstudy/test/build/CMakeFiles/test.dir
